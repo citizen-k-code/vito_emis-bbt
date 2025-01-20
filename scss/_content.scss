@@ -1,0 +1,357 @@
+
+@include media-breakpoint-up(xl) {
+  .right-content{
+    max-width: 480px;
+    width: 100%;
+    float: right;
+  }
+}
+.content {
+  padding: 56px 40px;
+
+  h2 {
+    font-family: "Yantramanav", serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 39px;
+    color: $primary;
+    padding-bottom: 16px;
+    margin: 0;
+  }
+
+  p {
+    font-family: "Work Sans", serif;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 28px;
+    color: $primary;
+
+    i {
+      font-family: "Work Sans", serif;
+      font-style: italic;
+      font-weight: 500;
+    }
+  }
+
+  article.header-block {
+    margin-bottom: 40px;
+  }
+
+  aside {
+    h3 {
+      font-family: "Yantramanav", serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 31px;
+      color: $primary;
+
+    }
+  }
+}
+
+
+/* tabed content tehnical table footnote styles starts here */
+.footnote {
+  ol {
+    padding-left: 16px;
+
+    li {
+      font-family: 'Work Sans';
+      font-style: italic;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: $primary;
+      padding-bottom: 16px;
+      padding-left: 6px;
+    }
+  }
+}
+
+/* tabed content tehnical table footnote styles ends here */
+
+/* acordeon styles starts here */
+
+
+
+/* Left Column Styles */
+.link-menu {
+  padding: 5px 0px 20px 0px;
+  overflow-y: auto;
+  margin-left: 0px;
+
+  @include media-breakpoint-up(xl) {
+    max-width: 350px;
+  }
+
+  h4 {
+    font-family: 'Yantramanav';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    margin-left: 10px;
+
+    a {
+      text-decoration: none;
+      color: $primary;
+
+      &.default {
+        &.active {
+          color: $primary-green;
+        }
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin: 10px 0;
+    position: relative;
+
+    &.mt-0 {
+      margin-bottom: 14px;
+    }
+
+    >a {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      text-decoration: none;
+      color: $primary;
+      display: flex;
+      align-items: flex-start;
+      cursor: pointer;
+      padding: 6px 0px 6px 6px;
+
+
+      &::before {
+        content: ''; // Right arrow
+        mask-image: url('data:image/svg+xml,<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.209376 9.76983C-0.0777189 9.47125 -0.0684094 8.99647 0.230169 8.70937L4.16792 5L0.230169 1.29062C-0.0684099 1.00353 -0.0777193 0.528747 0.209376 0.230167C0.496471 -0.0684109 0.971253 -0.0777207 1.26983 0.209374L5.76983 4.45937C5.91689 4.60078 6 4.79599 6 5C6 5.20401 5.91689 5.39922 5.76983 5.54062L1.26983 9.79062C0.971254 10.0777 0.496471 10.0684 0.209376 9.76983Z" fill="%232E3333"/></svg>');
+        mask-repeat: no-repeat;
+        background-color: $primary;
+        mask-position: center;
+        mask-size: 38%;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        margin-left: 2px;
+        margin-top: 5px;
+        display: block;
+        transition: transform 0.2s ease;
+        flex: 0 0 20px;
+      }
+
+      &.file::before {
+        content: ''; // file icon
+        mask-size: 80%;
+        mask-image: url('data:image/svg+xml,<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.6875 1.5C1.51491 1.5 1.375 1.63991 1.375 1.8125V16.1875C1.375 16.3601 1.51491 16.5 1.6875 16.5H12.3125C12.4851 16.5 12.625 16.3601 12.625 16.1875V8.6875C12.625 7.47938 11.6456 6.5 10.4375 6.5H9.1875C8.32455 6.5 7.625 5.80044 7.625 4.9375V3.6875C7.625 2.47938 6.64562 1.5 5.4375 1.5H1.6875ZM1.6875 0.25C0.824555 0.25 0.125 0.949555 0.125 1.8125V16.1875C0.125 17.0504 0.824555 17.75 1.6875 17.75H12.3125C13.1754 17.75 13.875 17.0504 13.875 16.1875V8.375C13.875 3.88769 10.2373 0.25 5.75 0.25H1.6875ZM8.46421 2.05654C8.72626 2.54183 8.875 3.09729 8.875 3.6875V4.9375C8.875 5.11009 9.01491 5.25 9.1875 5.25H10.4375C11.0277 5.25 11.5832 5.39875 12.0685 5.6608C11.374 4.04624 10.0788 2.75102 8.46421 2.05654Z" fill="%232E3333"/></svg>');
+      }
+
+      &.active {
+        color: #fff;
+        background: $primary-green;
+        border-radius: 4px;
+
+        &::before {
+          background-color: #fff;
+        }
+
+        &.file::before {
+          background-color: #fff;
+        }
+
+      }
+
+      &:hover {
+        background-color: rgba(93, 229, 165, 0.1);
+
+        color: $primary-green;
+
+        &::before {
+          background-color: $primary-green;
+        }
+      }
+
+      &.open::before {
+        transform: rotate(90deg); // Down arrow
+      }
+    }
+  }
+}
+
+.submenu {
+  padding-left: 32px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+
+  &.open {
+    max-height: 100vh; // Adjust based on content size
+    padding: 5px 0;
+  }
+
+  li {
+    padding-left: 32px; // Indentation for nested levels
+  }
+}
+
+// Right Column Styles
+/* Content styles */
+
+.col-12.col-xl-4.custom-col {
+  @include media-breakpoint-up(xl) {
+    max-width: 410px;
+  }
+}
+
+.content-nested-dropdown {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+
+  >div {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    &.active {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  &.pt-0 {
+    @include media-breakpoint-up(xl) {}
+  }
+
+  h2 {
+
+    font-family: 'Yantramanav';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 39px;
+    color: $primary;
+    margin-bottom: 24px;
+  }
+
+  h3 {
+    font-family: 'Yantramanav';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    color: $primary;
+    margin-bottom: 24px;
+  }
+
+  h4 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    color: $primary;
+    flex-grow: 1;
+    margin-bottom: 16px;
+  }
+
+  P {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: $primary;
+    margin-bottom: 24px;
+  }
+}
+
+/* acordeon styles ends here */
+/* toggle text styles starts here */
+
+.toggle-text {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.3s ease;
+  margin-bottom: -8px;
+}
+
+.toggle-text.expanded {
+  max-height: 100vh;
+  margin-bottom: 8px;
+}
+
+.toggle-link {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: $primary-green;
+  padding: 10px 0;
+
+  &::after {
+    content: '';
+    background-image: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.4419 13.5669C10.1979 13.811 9.80214 13.811 9.55806 13.5669L3.30806 7.31694C3.06398 7.07286 3.06398 6.67714 3.30806 6.43306C3.55214 6.18898 3.94786 6.18898 4.19194 6.43306L10 12.2411L15.8081 6.43306C16.0521 6.18898 16.4479 6.18898 16.6919 6.43306C16.936 6.67714 16.936 7.07286 16.6919 7.31694L10.4419 13.5669Z" fill="%23237B6C"/></svg>');
+    width: 20px;
+    height: 20px;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+    margin-left: 8px;
+    margin-bottom: -2px;
+  }
+
+  &.expanded {
+    &::after {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+/* toggle text styles ends here */
+
+/* styles for video container starts here*/
+.video-container {
+  position: relative;
+  width: 720px;
+  height: 400px;
+  cursor: pointer;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+/* styles for video container ends here*/

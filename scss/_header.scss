@@ -1,0 +1,65 @@
+/* header - styles starts here */
+header {
+  background: $header-bg-green;
+  padding: 16px 40px 16px 40px;
+
+  h1.h3 {
+    color: $header-title-color;
+    font-family: "Yantramanav", serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 47px;
+    padding: 0px 0;
+    margin-bottom: 8px;
+  }
+
+  ul {
+    font-family: 'Work Sans';
+    color: $primary;
+    padding-left: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  p {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: $primary;
+
+    b {
+      font-size: 18px;
+      line-height: 28px;
+      font-style: normal;
+    }
+
+    a {
+      color: $header-title-color;
+      font-weight: 500;
+    }
+  }
+}
+
+.header-back {
+  font-family: "Work Sans", serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  color: $primary-green;
+  background-color: none;
+  background: none;
+  background-image: url('data:image/svg+xml,<svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.43436 0.315641C5.60521 0.486495 5.60521 0.763505 5.43436 0.934359L1.80622 4.5625H11.25C11.4916 4.5625 11.6875 4.75838 11.6875 5C11.6875 5.24162 11.4916 5.4375 11.25 5.4375H1.80622L5.43436 9.06564C5.60521 9.2365 5.60521 9.5135 5.43436 9.68436C5.2635 9.85521 4.9865 9.85521 4.81564 9.68436L0.440641 5.30936C0.269786 5.1385 0.269786 4.8615 0.440641 4.69064L4.81564 0.315641C4.9865 0.144786 5.2635 0.144786 5.43436 0.315641Z" fill="%23237B6C"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 2px center;
+  border: 0;
+  padding: 9px 0px 9px 22px;
+  transition: all ease 0.2s;
+
+}
+
+/* header - styles ends here */

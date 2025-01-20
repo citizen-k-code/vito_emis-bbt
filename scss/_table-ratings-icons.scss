@@ -1,0 +1,126 @@
+.rating-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  align-items: center;
+  color: #7A7A7A;
+  border-radius: 50%;
+  background-image: url('../images/rating-elements.svg');
+  background-repeat: no-repeat;
+  position: relative;
+
+  sup{
+    right: -4px;
+    position: absolute;
+    top: 4px;
+  }
+
+  &.ra-0 {
+    background-position: -20px -20px;
+  }
+
+  &.ra-1 {
+    background-position: -76px -20px;
+  }
+
+  &.ra-2 {
+    background-position: -132px -20px;
+  }
+
+  &.ra-3 {
+    background-position: -188px -20px;
+  }
+
+  &.ra-4 {
+    background-position: -244px -20px;
+  }
+
+  &.ra-4-alt {
+    background-position: -300px -20px;
+  }
+
+  &.ra-5 {
+    background-position: -356px -20px;
+  }
+
+  &.ra-6 {
+    background-position: -412px -20px;
+  }
+
+  &.ra-7 {
+    background-position: -468px -20px;
+  }
+
+  &.ra-8 {
+    background-position: -524px -20px;
+  }
+
+}
+
+.rating-score{
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  align-items: center;
+  color: #7A7A7A;
+  border-radius: 50%;
+  background-image: url('../images/rating-score.svg');
+  background-repeat: no-repeat;
+  position: relative;
+
+  sup{
+    right: -2px;
+    position: absolute;
+    top: 0px;
+  }
+
+  &.rs-0 {
+    background-position: -20px -8px;
+  }
+
+  &.rs-1 {
+    background-position: -76px -8px;
+  }
+
+  &.rs-2 {
+    background-position: -132px -8px;
+  }
+
+  &.rs-3 {
+    background-position: -188px -8px;
+  }
+
+  &.rs-4 {
+    background-position: -244px -8px;
+  }
+
+  &.rs-4-alt {
+    background-position: -300px -8px;
+  }
+
+  &.rs-5 {
+    background-position: -356px -8px;
+  }
+
+  &.rs-6 {
+    background-position: -412px -8px;
+  }
+
+  &.rs-7 {
+    background-position: -468px -8px;
+  }
+
+  &.rs-8 {
+    background-position: -524px -8px;
+  }
+}
