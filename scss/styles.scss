@@ -23,6 +23,12 @@
 // Option 2
 //
 // Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
+body,
+html {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
 // Toggle global options
 $enable-gradients: true;
@@ -92,7 +98,9 @@ $success: #7952b3;
 // @import "icon-list";
 $primary: rgba(46, 51, 51, 1);
 $primary-green:#237B6C;
+$primary-green-hover:#1C4039;
 $secondary-green:#5DE5A5;
+$light-green-bg-hover:#E5FDEF;
 $header-bg-green:rgba(93, 229, 165, 0.2);
 $header-title-color:#237B6C;
 
@@ -107,10 +115,14 @@ $header-title-color:#237B6C;
   // --bs-breakpoint-xl: 1200px;
   // --bs-breakpoint-xxl: 1400px;
 }
+
 .animated-height {
-  transform: scaleY(1);
-  transform-origin: top;
-  transition: all 2.3s ease-in-out;
+  @include media-breakpoint-up(xl) {
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: all 2.3s ease-in-out;
+  }
+
 }
 
 .p-16 {
@@ -125,6 +137,14 @@ img {
 /* Custom media query for devices larger than 1440px */
 .container {
   max-width: 100%;
+  height: 100%;
+}
+
+main.container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 @media (min-width: 1440px) {
@@ -140,5 +160,19 @@ img {
 @import "_header";
 @import "_header-nav-tabs";
 @import "_table-ratings-icons";
+
+/* table styles starts here */
+
+
+
+/* styles for video container ends here*/
 @import '_table';
 @import '_links-buttons';
+@import "_newsletter";
+@import "_link-block";
+@import "_timeline";
+@import "_content-card";
+@import "_content-card-figure";
+@import "_content-toggle-list";
+@import '_content-search';
+@import '_article-menu'

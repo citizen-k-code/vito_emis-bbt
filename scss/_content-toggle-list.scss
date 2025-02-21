@@ -1,0 +1,193 @@
+/* content toggle list with image - styles starts here */
+
+.link-menu-one-level {
+  padding: 0px 0px 20px 0px;
+  overflow-y: auto;
+  margin-left: 0px;
+  transition: all ease 0.2s;
+  @include media-breakpoint-up(xl) {
+    max-width: 350px;
+  }
+
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin: 10px 0;
+    position: relative;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &.mt-0 {
+      margin-bottom: 14px;
+    }
+
+    >a {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      text-decoration: none;
+      color: $primary;
+      display: flex;
+      align-items: flex-start;
+      cursor: pointer;
+      padding: 8px 12px 8px 12px;
+      transition: all ease 0.1s;
+
+      &.active {
+        color: #fff;
+        background: $primary-green;
+        border-radius: 4px;
+        &:hover{
+          color: #fff;
+          background: $primary-green;
+          border-radius: 4px;
+        }
+
+        &::before {
+          background-color: #fff;
+        }
+
+        &.file::before {
+          background-color: #fff;
+        }
+
+      }
+
+      &:hover {
+        background-color: rgba(93, 229, 165, 0.1);
+
+        color: $primary-green;
+
+        &::before {
+          background-color: $primary-green;
+        }
+      }
+
+      &.open::before {
+        transform: rotate(90deg); // Down arrow
+      }
+    }
+  }
+}
+
+.content-dropdown {
+  flex-grow: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+  transition: all ease 0.2s;
+
+  @include media-breakpoint-up(md){
+    padding: 20px;
+  }
+
+  >div {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    &.active {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  &.pt-0 {
+    @include media-breakpoint-up(xl) {}
+  }
+
+  h2 {
+    font-family: 'Yantramanav';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 39px;
+    color: $primary;
+    margin-bottom: 16px;
+    padding-bottom: 0;
+  }
+
+  h3 {
+    font-family: 'Yantramanav';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    color: $primary;
+    margin-bottom: 24px;
+  }
+
+  h4 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    color: $primary;
+    flex-grow: 1;
+    margin-bottom: 16px;
+  }
+
+  P {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: $primary;
+    margin-bottom: 24px;
+
+    + ul{
+      margin-top: -16px;
+    }
+  }
+
+  a,
+  p a {
+    color: $primary-green;
+    text-decoration: underline;
+    font-style: normal;
+    font-weight: 400;
+    border-bottom: 0;
+    transition: all ease 0.2s;
+  }
+
+  ul{
+    padding: 0 0 0 20px;
+    li {
+      list-style: none;
+  
+      a {
+        margin-bottom: 4px;
+        position: relative;
+  
+        &:before {
+          content: "·";
+          font-size: 40px;
+          vertical-align: middle;
+          line-height: 20px;
+          position: absolute;
+          left: -18px;
+          top: -2px;
+        }
+      }
+    }
+  } 
+  
+}
+
+.content-dropdown > div.active {
+  display: block;
+}
+
+
+
+/* content toggle list with image  - styles ends here */

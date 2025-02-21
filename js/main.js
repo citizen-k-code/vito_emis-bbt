@@ -12,33 +12,63 @@ document.querySelectorAll('[data-bs-toggle="popover"]')
     new bootstrap.Popover(popover)
   })
 
-  document.querySelectorAll('.link-menu a').forEach(menuLink => {
-    menuLink.addEventListener('click', function (e) {
-        const target = this.getAttribute('data-target');
+  document.addEventListener("DOMContentLoaded", function () {
+    // Update button on page load
+    updateButtonTextOnLoad();
 
-        // Handle submenu toggling
-        if (this.classList.contains('toggle')) {
-            const submenu = this.nextElementSibling;
-            submenu.classList.toggle('open');
-            this.classList.toggle('open');
-        }
+    // Attach event listener to menu links
+    document.querySelectorAll('.link-menu a').forEach(menuLink => {
+        menuLink.addEventListener('click', function (e) {
+            const target = this.getAttribute('data-target');
 
-        // Remove active class from all menu items
-        document.querySelectorAll('.link-menu a').forEach(link => link.classList.remove('active'));
-        this.classList.add('active');
+            // Handle submenu toggling
+            if (this.classList.contains('toggle')) {
+                const submenu = this.nextElementSibling;
+                submenu.classList.toggle('open');
+                this.classList.toggle('open');
+            }
 
-        // Hide all content sections
-        document.querySelectorAll('.content-nested-dropdown > div').forEach(content => content.classList.remove('active'));
+            // Remove active class from all menu items
+            document.querySelectorAll('.link-menu a').forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
 
-        // Show the target content
-        if (target) {
-            document.getElementById(target).classList.add('active');
-        }
+            // Hide all content sections
+            document.querySelectorAll('.content-nested-dropdown > div').forEach(content => content.classList.remove('active'));
 
-        // Automatically open parent menus if active
-        openParentMenus(this);
+            // Show the target content
+            if (target) {
+                document.getElementById(target).classList.add('active');
+            }
+
+            // Automatically open parent menus if active
+            openParentMenus(this);
+
+            // Update the button with the active menu text
+            updateButtonText(this.textContent);
+        });
     });
 });
+
+// Function to update the button text with the active menu item text
+function updateButtonText(activeText) {
+    const button = document.querySelector('.btn-show-article-menu-mobile');
+    if (button) {
+        button.textContent = activeText; // Change button text to match active menu link
+    }
+}
+
+// Function to set button text based on active menu item when the page loads
+function updateButtonTextOnLoad() {
+    const activeLink = document.querySelector('.link-menu a.active'); // Find the active menu item
+
+    // Check if an active link exists before updating the button
+    if (activeLink) {
+        updateButtonText(activeLink.textContent);
+    } else {
+        console.warn("No active menu item found on page load.");
+    }
+}
+
 
 function openParentMenus(activeLink) {
     let parent = activeLink.parentElement.parentElement;
@@ -118,14 +148,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterContainer = document.querySelector(".filter-nr-container");
 
   const togglePopup = () => {
-      popup.style.display = popup.style.display === "block" ? "none" : "block";
-      filterButtons.forEach(btn => btn.classList.remove("activeFilter"));
-      filterButtons[0].classList.add("activeFilter");
-      document.getElementById("bbtPopupCheckbox").style.display = "none";
+    if (popup) {
+      popup.classList.toggle("active"); // Toggle the popup active state
+      document.body.classList.toggle("popup-opened"); // Toggle class on body
+    }
+
+    filterButtons.forEach(btn => btn.classList.remove("activeFilter"));
+    filterButtons[0].classList.add("activeFilter");
+    document.getElementById("bbtPopupCheckbox").classList.remove("active");
   };
 
   const closePopup = () => {
-      popup.style.display = "none";
+    if (popup) {
+      popup.classList.remove("active");
+      document.body.classList.remove("popup-opened"); // Remove class from body
+    }
   };
 
   if (toggleButton) {
@@ -134,19 +171,22 @@ document.addEventListener("DOMContentLoaded", () => {
       togglePopup();
     });
 
-    closeButton.addEventListener("click", closePopup);
+    if (closeButton) {
+      closeButton.addEventListener("click", closePopup);
+    }
 
     document.addEventListener("click", (event) => {
-      if (!popup.contains(event.target) && event.target !== toggleButton) {
+      if (popup && !popup.contains(event.target) && event.target !== toggleButton) {
         closePopup();
       }
     });
-  };
+  }
+
   filterButtons.forEach(button => {
-      button.addEventListener("click", () => {
-          filterButtons.forEach(btn => btn.classList.remove("activeFilter"));
-          button.classList.add("activeFilter");
-      });
+    button.addEventListener("click", () => {
+      filterButtons.forEach(btn => btn.classList.remove("activeFilter"));
+      button.classList.add("activeFilter");
+    });
   });
 
   if (addFilterButton) {
@@ -172,11 +212,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const badge = document.createElement("div");
         badge.className = "badge";
         badge.innerHTML = `
-              ${filterLabel} effect op ${closestFilterTitle} ${filterText}
-              <span class="badge-close">&times;</span>
-          `;
-        filterContainer.appendChild(badge);
+          ${filterLabel} effect op ${closestFilterTitle} ${filterText}
+          <span class="badge-close">&times;</span>
+        `;
 
+        if (filterContainer) {
+          filterContainer.appendChild(badge);
+        }
+        
         closePopup();
 
         badge.querySelector(".badge-close").addEventListener("click", () => {
@@ -184,14 +227,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     });
-  };
+  }
 
   dropdownItems.forEach(item => {
-      item.addEventListener("click", (event) => {
-          event.preventDefault();
-          dropdownItems.forEach(i => i.classList.remove("activeFilter"));
-          item.classList.add("activeFilter");
-      });
+    item.addEventListener("click", (event) => {
+      event.preventDefault();
+      dropdownItems.forEach(i => i.classList.remove("activeFilter"));
+      item.classList.add("activeFilter");
+    });
   });
 
   // Select the filter-buttons div
@@ -212,14 +255,11 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (button.dataset.filter === "negatief") {
           filterButtonsDiv.classList.add("third-btn-active");
         }
-        // Note: No action needed for the first button ("positief")
       });
     });
   }
 });
 
-
-/* script for the table filtering dropdown Aspect ends here */
 
 
 /* script to toggle content in the header starts here  */
@@ -254,36 +294,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const addFilterButtonCheckbox = document.getElementById("addFilterButtonCheckbox");
   const filterContainer = document.querySelector(".filter-nr-container");
   const checkboxes = document.querySelectorAll(".form-check-input.popup-checkbox");
+  const aspectPopup = document.getElementById("aspectPopup");
 
   // Function to toggle the popup
   const togglePopup = () => {
-      popup.style.display = popup.style.display === "block" ? "none" : "block";
-      document.getElementById("aspectPopup").style.display = "none";
-      // Uncheck all checkboxes when the popup opens
-      checkboxes.forEach(checkbox => checkbox.checked = false);
+    if (popup) {
+      popup.classList.toggle("active"); // Toggle active class for the popup
+      document.body.classList.toggle("popup-opened"); // Toggle class on body
+    }
+    if (aspectPopup) {
+      aspectPopup.classList.remove("active"); // Ensure aspectPopup is closed
+    }
+
+    // Uncheck all checkboxes when the popup opens
+    checkboxes.forEach(checkbox => checkbox.checked = false);
   };
 
   // Function to close the popup
   const closePopup = () => {
-      popup.style.display = "none";
+    if (popup) {
+      popup.classList.remove("active");
+      document.body.classList.remove("popup-opened"); // Remove class from body
+    }
   };
 
   // Show/hide popup on button click
   if (toggleButton) {
     toggleButton.addEventListener("click", (event) => {
-        event.stopPropagation();
-        togglePopup();
+      event.stopPropagation();
+      togglePopup();
     });
-  };
+  }
 
   // Close popup on close button click
-  if (closeButton) { closeButton.addEventListener("click", closePopup); };
+  if (closeButton) {
+    closeButton.addEventListener("click", closePopup);
+  }
 
   // Close popup if clicked outside
   document.addEventListener("click", (event) => {
-      if (popup && !popup.contains(event.target) && event.target !== toggleButton) {
-          closePopup();
-      }
+    if (popup && !popup.contains(event.target) && event.target !== toggleButton) {
+      closePopup();
+    }
   });
 
   // Handle "Filter toevoegen" button click
@@ -297,9 +349,9 @@ document.addEventListener("DOMContentLoaded", () => {
           const badge = document.createElement("div");
           badge.className = "badge";
           badge.innerHTML = `
-                  BBT: ${label}
-                  <span class="badge-close">&times;</span>
-              `;
+            BBT: ${label}
+            <span class="badge-close">&times;</span>
+          `;
           filterContainer.appendChild(badge);
 
           // Add event listener to remove badge on "x" click
@@ -312,8 +364,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Close popup
       closePopup();
     });
-  };
+  }
 });
+
 /* script for the table filtering dropdown BBT ends here */
 
 
@@ -323,42 +376,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterContainer = document.querySelector('.filter-nr-container');
     const filterNr = document.querySelector('.filter-nr');
 
-    // Ensure filterContainer exists
     if (!filterContainer) {
-      console.error('Error: .filter-nr-container element not found.');
+      // console.warn('Warning: .filter-nr-container not found.');
       return;
     }
 
     const badgeCount = filterContainer.querySelectorAll('.badge').length;
 
     if (filterNr) {
-      if (badgeCount > 0) {
-        filterNr.innerHTML = `Filter (<span>${badgeCount}</span>) leegmaken`;
-      } else {
-        filterNr.innerHTML = '';
-      }
+      filterNr.innerHTML = badgeCount > 0 
+        ? `Filter (<span>${badgeCount}</span>) leegmaken` 
+        : '';
     }
   }
 
-  // Initial count update
-  updateBadgeCount();
-
-  // Get the filterContainer and ensure it exists before observing
-  const filterContainer = document.querySelector('.filter-nr-container');
-  if (!filterContainer) {
-    console.error('Error: .filter-nr-container element not found. MutationObserver not started.');
-    return;
+  // Function to wait for the filterContainer to be available
+  function waitForElement(selector, callback) {
+    const element = document.querySelector(selector);
+    if (element) {
+      callback(element);
+    } else {
+      setTimeout(() => waitForElement(selector, callback), 100);
+    }
   }
 
-  // Set up a MutationObserver to listen for changes in the filter container
-  const observer = new MutationObserver(updateBadgeCount);
+  // Wait for .filter-nr-container before running the observer
+  waitForElement('.filter-nr-container', (filterContainer) => {
+    updateBadgeCount(); // Initial count update
 
-  // Start observing the target node for configured mutations
-  observer.observe(filterContainer, {
-    childList: true, // Monitor addition or removal of child elements
-    subtree: false   // Don't watch the entire subtree, just direct children
+    // Set up a MutationObserver to listen for changes in the filter container
+    const observer = new MutationObserver(updateBadgeCount);
+
+    // Start observing the target node for mutations
+    observer.observe(filterContainer, {
+      childList: true, // Monitor addition or removal of child elements
+      subtree: false   // Don't watch the entire subtree, just direct children
+    });
   });
 });
+
 /* filter badge count script starts here */
 
 /* script for playing video starts here */
@@ -438,7 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   } else {
-    console.warn("Warning: .filter-container does not exist on the page.");
+    // console.warn("Warning: .filter-container does not exist on the page.");
   }
 });
 
@@ -457,6 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Ensure content is open by default
     list.style.maxHeight = `${list.scrollHeight}px`;
 
+    if (title ) {
     title.addEventListener("click", () => {
       if (list.classList.contains("closed")) {
         list.classList.remove("closed");
@@ -468,6 +525,7 @@ document.addEventListener("DOMContentLoaded", () => {
         title.classList.add("closed");
       }
     });
+  }
   });
 
   // Search functionality
@@ -555,3 +613,67 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+/* script for one level menu starts here */
+document.addEventListener("DOMContentLoaded", function () {
+  const menuLinks = document.querySelectorAll(".link-menu-one-level a");
+  const contentSections = document.querySelectorAll(".content-dropdown > div");
+
+  function activateMenuItem(menuLink) {
+      // Remove 'active' class from all menu items
+      menuLinks.forEach(link => link.classList.remove("active"));
+
+      // Add 'active' class to the clicked menu item
+      menuLink.classList.add("active");
+
+      // Hide all content sections
+      contentSections.forEach(content => content.classList.remove("active"));
+
+      // Show the target content
+      const targetId = menuLink.getAttribute("data-target");
+      if (targetId) {
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+              targetElement.classList.add("active");
+          } else {
+              console.warn(`Target element with ID "${targetId}" not found.`);
+          }
+      }
+
+      // Update button text with active menu item text
+      updateButtonText(menuLink.textContent);
+  }
+
+  function updateButtonText(activeText) {
+      const button = document.querySelector(".btn-show-article-menu-mobile");
+      if (button) {
+          button.textContent = activeText; // Update button text
+      }
+  }
+
+  function updateButtonTextOnLoad() {
+      const activeLink = document.querySelector(".link-menu-one-level a.active");
+      if (activeLink) {
+          updateButtonText(activeLink.textContent);
+      } else if (menuLinks.length > 0) {
+          // If no active link exists, set the first menu item as active
+          activateMenuItem(menuLinks[0]);
+      } else {
+          console.warn("No menu items found.");
+      }
+  }
+
+  // Ensure the correct menu item is selected on page load
+  updateButtonTextOnLoad();
+
+  // Add click event to each menu item
+  menuLinks.forEach(menuLink => {
+      menuLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          activateMenuItem(this);
+      });
+  });
+});
+
+/* script for one level menu ends here */

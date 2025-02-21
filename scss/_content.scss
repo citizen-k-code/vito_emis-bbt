@@ -1,13 +1,56 @@
 
-@include media-breakpoint-up(xl) {
-  .right-content{
+.right-content {
+  @include media-breakpoint-up(xl) {
     max-width: 480px;
     width: 100%;
     float: right;
   }
+   > div, > aside {
+    // border-bottom: 16px solid orange;;
+    margin-bottom: 56px;
+
+    &:last-child{
+      margin-bottom: 16px;
+    }
+  }
 }
+
+
+
+.v-devider {
+  padding-right: 12px;
+  padding-bottom: 56px;
+
+  @include media-breakpoint-up(xl) {
+    padding-right: 60px;
+    padding-bottom: 0;
+
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      right: 0;
+      top: -56px;
+      height: calc(100% + 112px);
+      background-color: #CED4DA;
+    }
+    + div{
+      padding-left: 40px;
+      padding-right: 16px;
+    }
+  }
+}
+
 .content {
-  padding: 56px 40px;
+ 
+  padding: 24px 24px;
+
+  @include media-breakpoint-up(md){
+    padding: 24px 24px;
+    padding: 56px 40px;
+  }
 
   h2 {
     font-family: "Yantramanav", serif;
@@ -18,6 +61,23 @@
     color: $primary;
     padding-bottom: 16px;
     margin: 0;
+
+    +h3 {
+      margin-top: 16px;
+    }
+  }
+
+  h3 {
+    font-family: "Yantramanav", serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    color: $primary;
+    padding-bottom: 16px;
+    margin: 0;
+    display: inline-flex;
+
   }
 
   p {
@@ -27,15 +87,46 @@
     line-height: 28px;
     color: $primary;
 
+    a {
+      color: $primary-green;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid $primary;
+    }
+
     i {
       font-family: "Work Sans", serif;
       font-style: italic;
       font-weight: 500;
     }
+
+    +h3 {
+      margin-top: 40px;
+    }
   }
 
   article.header-block {
-    margin-bottom: 40px;
+    padding-bottom: 40px;
+
+  }
+
+  article {
+    h3 {
+      padding-bottom: 8px;
+      display: inline-flex;
+    }
+
+    ~article {
+      margin-top: 40px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 16px;
+    }
+
+    + .ongoing-table-wrapper{
+     margin-top: 32px; 
+    }
   }
 
   aside {
@@ -48,6 +139,9 @@
       color: $primary;
 
     }
+  }
+  &.pb-5{
+    padding-bottom: 56px !important;
   }
 }
 
@@ -97,6 +191,7 @@
     a {
       text-decoration: none;
       color: $primary;
+      transition: all ease 0.2s;
 
       &.default {
         &.active {
@@ -132,7 +227,7 @@
       align-items: flex-start;
       cursor: pointer;
       padding: 6px 0px 6px 6px;
-
+      transition: all ease 0.2s;
 
       &::before {
         content: ''; // Right arrow
@@ -161,6 +256,12 @@
         color: #fff;
         background: $primary-green;
         border-radius: 4px;
+
+        &:hover{
+          color: #fff;
+          background: $primary-green;
+          border-radius: 4px;
+        }
 
         &::before {
           background-color: #fff;
@@ -209,15 +310,18 @@
 /* Content styles */
 
 .col-12.col-xl-4.custom-col {
-  @include media-breakpoint-up(xl) {
+  @include media-breakpoint-up(lg) {
     max-width: 410px;
   }
 }
 
 .content-nested-dropdown {
   flex-grow: 1;
-  padding: 20px;
   overflow-y: auto;
+  transition: all ease 0.1s;
+  @include media-breakpoint-up(xl) {
+    padding: 20px;
+  }
 
   >div {
     display: none;
@@ -235,7 +339,6 @@
   }
 
   h2 {
-
     font-family: 'Yantramanav';
     font-style: normal;
     font-weight: 500;
@@ -354,4 +457,5 @@ iframe {
 .hidden {
   display: none;
 }
+
 /* styles for video container ends here*/

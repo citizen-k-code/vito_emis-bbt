@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>04 - Selection systems - 03 LUSS</title>
+</head>
+
+<body>
+  <main class="container p-0">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Vlaams Kenniscentrum voor Beste Beschikbare Technieken</a></li>
+        <li class="breadcrumb-item"><a href="#">BBT-Tools</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Selectiesystemen</li>
+      </ol>
+    </nav>
+    <header class="d-flex justify-content-between align-items-md-center ">
+      <div class="row">
+        <div class="col-md-12 d-flex align-items-center">
+          <div>
+            <button class="header-back">Terug</button>
+            <h1 class="h3">
+              LUSS (LUchtzuiveringstechnieken SelectieSysteem)
+            </h1>
+            <p>LUSS is een beslisondersteunend systeem dat kan helpen bij een eerste screening van mogelijke technieken
+              om een luchtverontreiniging op te lossen.</p>
+            <div class="toggle-text" id="collapsible-text">
+              <p>BBT-conclusies zijn een belangrijk onderdeel van de <a href="#" target="_blank">BREFs
+                  (BBT-referentiedocumenten)</a> en beschrijven de Beste Beschikbare Technieken (BBT) om
+                milieudoelstellingen te behalen. Ze bevatten vaak milieuprestatieniveaus (BBT-GMPN), zoals
+                emissieniveaus (BBT-GEN), verbruiksniveaus of andere prestatieniveaus. Ook monitoring, zoals
+                meetfrequenties en -methoden, wordt hierin opgenomen.
+              </p>
+              <p><b>Onder de Richtlijn Industriële Emissies (RIE) dienen BBT-conclusies als referentie voor
+                  vergunningsvoorwaarden van GPBV-installaties.</b> Emissiegrenswaarden mogen niet hoger zijn dan de
+                BBT-GEN, tenzij onder strikte voorwaarden. Strengere lokale milieunormen (MKN) hebben voorrang.</p>
+              <p>Binnen vier jaar na publicatie van de BBT-conclusies moeten vergunningen worden aangepast en
+                installaties aan de nieuwe voorwaarden voldoen. In Vlaanderen gebeurt dit via het VLAREM of de
+                omgevingsvergunning.</p>
+
+            </div>
+            <a href="javascript:void(0);" class="toggle-link" id="toggle-button">Minder tonen</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content pb-5">
+      <div class="row equal-height-row card-row">
+        <div class="col-12 col-xl-4 custom-col">
+          <!-- menu container slide in what is used for desktop and mobile - start here -->
+          <div class="offcanvas offcanvas-start article-menu-canvas" tabindex="-1" id="showArticleListMenuMobile"
+            aria-labelledby="offcanvasMenuBlock">
+            <button type="button" class="btn-close btn-reset-canvas" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+            <div class="link-menu-one-level">
+              <ul>
+                <li><a href="#" data-target="content-1">Applicatie</a></li>
+                <li><a href="#" data-target="content-2">Beperkingen</a></li>
+                <li><a href="#" data-target="content-3">Input & output</a></li>
+                <li><a href="#" data-target="content-4">Inputparameters</a></li>
+                <li><a href="#" data-target="content-5">Outputparameters</a></li>
+                <li><a href="#" data-target="content-6">Technieken</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- menu container slide in what is used for desktop and mobile - ends here -->
+        </div>
+        <div class="col-12 col-xl-8">
+          <div class="content-dropdown pt-0">
+            <!-- Button that opens side menu with article list - button is not visible on desktop this - starts here -->
+            <button type="button" class="btn btn-show-article-menu-mobile" data-bs-toggle="offcanvas"
+              data-bs-target="#showArticleListMenuMobile">Applicatie</button>
+            <!-- Button that opens side menu with article list - button is not visible on desktop this - ends here -->
+            <div id="content-1">
+              <h2>Applicatie</h2>
+              <p>Hieronder kunt u de trajecten en concepten terugvinden die kunnen toegepast worden op het door u
+                ingegeven luchtstaal. U kunt ook de parameters terug bekijken door op de tab 'Ingevoerde parameters'
+                te klikken. U kunt deze parameters ook terug wijzigen door onderaan de pagina op de knop 'Terug naar
+                het formulier' te klikken.</p>
+            </div>
+            <div id="content-2">
+              <h2>Beperkingen</h2>
+              <p>Details about Beperkingen.</p>
+            </div>
+            <div id="content-3">
+              <h2>Input & output</h2>
+              <p>Details about Input & output.</p>
+            </div>
+            <div id="content-4">
+              <h2>Inputparameters</h2>
+              <p>Details about Inputparameters.</p>
+            </div>
+            <div id="content-5">
+              <h2>Outputparameters</h2>
+              <p>Details about Outputparameters.</p>
+            </div>
+            <div id="content-6">
+              <h2>Technieken</h2>
+              <p>Details about Technieken.</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+    <!-- newsletter section - strats here -->
+    <section class="newsletter container-fluid">
+      <div class="container">
+        <h4>Blijf op de hoogte via onze nieuwsbrief</h4>
+        <form action="#" method="POST">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="input-group">
+                <label for="voornaam" class="form-label">Voornaam</label>
+                <input type="text" class="form-control" id="voornaam" name="voornaam" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <label for="achternaam" class="form-label">Achternaam</label>
+                <input type="text" class="form-control" id="achternaam" name="achternaam" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <label for="email" class="form-label">E-mailadres</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- reCAPTCHA -->
+          <div class="row align-items-center">
+            <div class="col d-flex justify-content-start flex-column flex-md-row">
+              <div id="recaptcha-container"></div> <!-- Placeholder -->
+
+              <p class="info">We stellen deze vraag om spam tegen te gaan.</p>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn">Inschrijven</button>
+        </form>
+
+      </div>
+    </section>
+    <!-- newsletter section - ends here -->
+  </main>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yantramanav:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js?onload=loadRecaptcha&render=explicit" async defer></script>
+
+  <script>
+    function loadRecaptcha() {
+      grecaptcha.render('recaptcha-container', {
+        'sitekey': 'YOUR_SITE_KEY'
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -15,7 +15,7 @@ nav ol.breadcrumb {
   line-height: 20px;
   padding: 16px 20px;
   background-color: #fff;
-  gap: 8px;
+  gap: 0 8px;
   font-family: "Work Sans", serif;
   font-style: normal;
   font-weight: 400;
@@ -34,7 +34,7 @@ nav ol.breadcrumb {
     transition: all ease 0.2s;
 
     @include media-breakpoint-up(xl) {
-      max-width: 30%;
+      max-width: 21.5%;
     }
 
     &::after {
@@ -46,6 +46,7 @@ nav ol.breadcrumb {
       position: absolute;
       right: 0;
       bottom: 8px;
+      
     }
 
     a {

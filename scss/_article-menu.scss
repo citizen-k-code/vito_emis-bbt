@@ -1,0 +1,126 @@
+/* styles for slide-in offcanvas mobile menu - starts here */
+
+.btn-show-article-menu-mobile {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  display: inline-block;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px 12px;
+  gap: 8px;
+  background: #0A6076;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  color: #fff;
+  margin-bottom: 32px;
+  width: 100%;
+  max-width: 380px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+
+  @include media-breakpoint-up(xl) {
+    display: none;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    background: #0A6076;
+    color: #fff;
+  }
+
+  &::before {
+    content: '';
+    mask-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4.5C2 4.22386 2.22386 4 2.5 4H13.5C13.7761 4 14 4.22386 14 4.5C14 4.77614 13.7761 5 13.5 5H2.5C2.22386 5 2 4.77614 2 4.5ZM2 8C2 7.72386 2.22386 7.5 2.5 7.5H13.5C13.7761 7.5 14 7.72386 14 8C14 8.27614 13.7761 8.5 13.5 8.5H2.5C2.22386 8.5 2 8.27614 2 8ZM2 11.5C2 11.2239 2.22386 11 2.5 11H13.5C13.7761 11 14 11.2239 14 11.5C14 11.7761 13.7761 12 13.5 12H2.5C2.22386 12 2 11.7761 2 11.5Z" fill="white"/></svg>');
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: 99%;
+    width: 17px;
+    height: 17px;
+    display: block;
+    background-color: #fff;
+    display: inline-flex;
+    position: relative;
+    float: left;
+    margin-right: 5px;
+    margin-top: -1px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    display: none;
+  }
+}
+
+.offcanvas.offcanvas-start.article-menu-canvas {
+  padding: 64px 24px 24px 24px;
+  overflow: auto;
+  height: 100%;
+  --bs-offcanvas-width: 428px !important;
+
+  .close-btn-wrapper {
+    --bs-offcanvas-width: 428px !important;
+    height: 48px;
+    width: 100%;
+    max-width: 410px;
+    left: 0;
+    z-index: 2;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 0px 35px 24px 0px;
+    overflow: unset;
+    position: relative;
+    transform: none;
+    visibility: visible;
+    display: block;
+    box-shadow: none;
+    transition: none;
+    padding: 48px 35px 24px 36px;
+
+    +.offcanvas-backdrop.fade {
+      display: none;
+    }
+
+    .btn-close.text-reset {
+      display: none;
+    }
+  }
+
+  .btn-close {
+    top: 15px;
+    right: 38px;
+    z-index: 100;
+    position: absolute;
+    color: #2E3333;
+    opacity: 0.9;
+    width: 13.5px;
+    height: 13.5px;
+    background-size: 13.5px 13.5px;
+    z-index: 3;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  h2 {
+    height: 31px;
+    font-family: 'Yantramanav';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    color: $primary;
+    text-align: left;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+  }
+}
+
+/* styles for slide-in offcanvas mobile menu - starts here */

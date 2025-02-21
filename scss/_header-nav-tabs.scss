@@ -1,8 +1,12 @@
 /* header navigation tabs - styles starts here */
 .nav-tabs {
   background: #F0EFEF;
-  padding: 8px 40px;
+  padding: 8px 24px;
   border-bottom: 0;
+  position: relative;
+  @include media-breakpoint-up(md){
+    padding: 8px 40px;
+  }
 
   .nav-link {
     border-radius: 8px;
@@ -12,11 +16,15 @@
     font-family: "Work Sans", serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
-    padding: 10px 20px;
+    padding: 10px 12px;
     margin-bottom: 0;
     transition: all ease 0.2s;
+    @include media-breakpoint-up(md){
+      padding: 10px 20px;
+      font-size: 18px;
+    }
 
     &.active {
       background: $primary-green;
@@ -28,6 +36,24 @@
 
     &:hover{
       color: $primary-green;
+    }
+  }
+}
+
+header.full-width + .nav-tabs{
+  @include media-breakpoint-up(md) {
+    &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      width: 100vw; 
+      background: #F0EFEF; 
+      z-index: -1; 
+      height: 100%;
+      margin-left: calc(-50vw + 48%);
+      box-shadow: 24px 0px 0px #F0EFEF;
     }
   }
 }

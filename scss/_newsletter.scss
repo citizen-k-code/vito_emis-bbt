@@ -1,0 +1,117 @@
+/* newsletter - styles starts here */
+.newsletter {
+  max-width: 840px;
+  padding: 0;
+  background-color: #e9f2f0;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: auto;
+  @include media-breakpoint-up(md) {
+  &::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100vw; 
+    background: #e9f2f0; 
+    z-index: -1; 
+    height: 100%;
+    margin-left: calc(-50vw + 48%);
+    box-shadow: 24px 0px 0px #e9f2f0;
+  }
+}
+.container{
+  
+  padding: 24px 24px;
+
+  @include media-breakpoint-up(md){
+    padding: 32px 32px;
+  }
+}
+  h4 {
+    font-family: "Yantramanav", serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    padding-bottom: 16px;
+  }
+  .row{
+    margin-bottom: 16px;
+  }
+  .form-label {
+    padding: 8px 4px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: $primary;
+  }
+
+  input.form-control {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 11px 16px;
+    gap: 8px;
+    min-height: 32px;
+    line-height: 24px;
+    border: 1px solid #c4ccca;
+    background: #FFFFFF;
+    border-radius: 8px;
+
+    &:focus-visible {
+      outline: 0;
+      border: 1px solid #2f7d69;
+
+    }
+  }
+
+  button.btn {
+    border-radius: 8px;
+    background: $primary-green;
+    border: 0;
+    color: #fff;
+    font-family: "Work Sans", serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 17px 16px;
+    margin-bottom: 0;
+    transition: all ease 0.2s;
+
+    &:hover {
+      color: $primary-green-hover;
+      background: #5DE5A5;
+    }
+  }
+
+  p.info {
+
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+    color: #000000;
+    padding: 24px 24px 24px 0px;
+    margin-bottom: 0;
+  }
+
+  #recaptcha-container + p{
+    padding-left: 24px;
+  }
+}
+
+/* newsletter - styles ends here */

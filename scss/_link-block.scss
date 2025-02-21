@@ -1,0 +1,81 @@
+/* link block from section 3 homepage - styles starts here */
+
+ul.link-block {
+  padding-left: 0;
+
+  // --d-color-semantic-secondary-bg
+
+  li {
+      list-style: none;
+      padding: 0;
+      background:rgba(93, 229, 165, 0.3);
+      margin-bottom: 12px;
+      &:last-child {
+          border: 0;
+          margin-bottom: 0;
+      }
+  }
+
+  a {
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 28px;
+      color: #1C4039;
+      text-decoration: none;
+      width: 100%;
+      padding: 14px 50px 14px 60px;
+      position: relative;
+      display: inline-block;
+      transition: 0.2s ease all;
+
+
+
+      &:hover {
+          color: $primary-green-hover;
+          background-color: #72E8B1;
+
+          &::before,
+          &::after {
+              background-color:$primary-green-hover;
+          }
+      }
+
+      img {
+          width: 28px;
+          height: 28px;
+          margin-top: 0px;
+          float: left;
+          margin-left: 20px;
+          margin-right: 12px;
+      }
+
+      &::before {
+          content: '';
+          width: 28px;
+          height: 28px;
+          float: left;
+          margin-top: 0px;
+          margin-left: 20px;
+          margin-right: 12px;
+          left: 0;
+          position: absolute;
+      }
+
+      &::after {
+          content: '';
+          mask-image: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.2803 11.4697C16.5732 11.7626 16.5732 12.2374 16.2803 12.5303L8.78033 20.0303C8.48744 20.3232 8.01256 20.3232 7.71967 20.0303C7.42678 19.7374 7.42678 19.2626 7.71967 18.9697L14.6893 12L7.71967 5.03033C7.42678 4.73744 7.42678 4.26256 7.71967 3.96967C8.01256 3.67678 8.48744 3.67678 8.78033 3.96967L16.2803 11.4697Z" fill="%232E3333"/></svg>');
+          width: 24px;
+          height: 24px;
+          display: block;
+          background-repeat: no-repeat;
+          right: 0px;
+          position: absolute;
+          top: 14px;
+          right: 20px;
+          background-color: #1C4039;
+      }
+  }
+}
+/* link block from section 3 homepage - styles ends here */

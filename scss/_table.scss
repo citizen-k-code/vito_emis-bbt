@@ -1,14 +1,13 @@
-
 /* table styles starts here */
 nav.techniques-table {
   padding-bottom: 32px;
+
   button {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 17px 16px;
-
+    padding: 14px 10px;
     box-shadow: none;
     border-radius: 1000px;
     font-family: 'Work Sans';
@@ -18,7 +17,12 @@ nav.techniques-table {
     line-height: 14px;
     color: $primary;
     border: none;
-    margin: 0 16px 0 0;
+    margin: 0 8px 0 0;
+
+    @include media-breakpoint-up(md) {
+      padding: 17px 16px;
+      margin: 0 16px 0 0;
+    }
 
     &.activeTab,
     &:hover {
@@ -27,7 +31,7 @@ nav.techniques-table {
     }
   }
 
-  + .table-filtering{
+  +.table-filtering {
     margin-left: 0;
   }
 }
@@ -40,6 +44,7 @@ nav.techniques-table {
   font-size: 18px;
   color: #007bff;
 }
+
 .techniques-table-wrapper {
   overflow-y: auto;
   border: 2px solid #f0eeef;
@@ -51,10 +56,18 @@ nav.techniques-table {
   background-color: #F0EFEF;
   padding: 16px 16px 16px 16px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   align-content: center;
-  margin-left: 12px;
+  gap: 8px;
+
+
+  @include media-breakpoint-up(md) {
+    margin-left: 12px;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+  }
 
   .pagination-info {
     font-family: 'Work Sans';
@@ -64,7 +77,10 @@ nav.techniques-table {
     line-height: 28px;
     text-align: right;
     color: $primary;
-    margin-left: auto;
+
+    @include media-breakpoint-up(xl) {
+      margin-left: auto;
+    }
 
     b {
       font-weight: 600;
@@ -82,6 +98,7 @@ nav.techniques-table {
     color: $primary;
   }
 }
+
 /* styles for filtered number starts here */
 .filter-nr {
   font-style: normal;
@@ -92,6 +109,11 @@ nav.techniques-table {
   text-decoration: underline;
   color: $primary-green;
   padding: 9px 0;
+
+  &:empty {
+    height: 0;
+    padding: 0;
+  }
 }
 
 /* styles for filtered number ends here */
@@ -134,7 +156,7 @@ nav.techniques-table {
       top: 9px;
     }
 
-    &:active{
+    &:active {
       background: #0A6076;
     }
   }
@@ -155,9 +177,7 @@ nav.techniques-table {
 /* filter block for databse table checkbox starts here */
 
 .filter-block {
-  // padding-bottom: 24px;
-  border-bottom: 1px solid rgba(206, 212, 218, 1);
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 
   h3.filter-block-title {
     font-family: 'Work Sans';
@@ -172,7 +192,7 @@ nav.techniques-table {
     align-content: center;
     margin-bottom: 12px;
 
-    &::after{
+    &::after {
       content: "";
       background-image: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.4697 7.71967C11.7626 7.42678 12.2374 7.42678 12.5303 7.71967L20.0303 15.2197C20.3232 15.5126 20.3232 15.9874 20.0303 16.2803C19.7374 16.5732 19.2626 16.5732 18.9697 16.2803L12 9.31066L5.03033 16.2803C4.73744 16.5732 4.26256 16.5732 3.96967 16.2803C3.67678 15.9874 3.67678 15.5126 3.96967 15.2197L11.4697 7.71967Z" fill="%232E3333"/></svg>');
       background-repeat: no-repeat;
@@ -189,13 +209,14 @@ nav.techniques-table {
       transform: rotate(0deg);
     }
 
-    &.closed{
-      &::after{transform: rotate(180deg);}
+    &.closed {
+      &::after {
+        transform: rotate(180deg);
+      }
     }
   }
 
   .filter-block-list {
-    // max-height: 1000px;
     max-height: 100vh;
     transition: max-height 0.3s ease, padding 0.3s ease;
     margin-bottom: 12px;
@@ -230,7 +251,7 @@ nav.techniques-table {
 
 }
 
-.form-check{
+.form-check {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -286,29 +307,83 @@ nav.techniques-table {
       }
     }
 
-    sup{
+    sup {
       font-weight: 400;
       font-size: 10px;
       line-height: 12px;
-      top:-1px
+      top: -1px
     }
   }
 }
 
-.custom-popup {
-  position: absolute;
-  display: none;
-  top: 100%;
-  left: -8px;
-  z-index: 1050;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  min-width: 300px;
-  border-radius: 8px;
+body.popup-opened {
+  @include media-breakpoint-down(sm) {
+    overflow: hidden;
+  }
+}
 
-  &.aspect{min-width: 400px;}
+.filter-button-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.custom-popup {
+  position: fixed;
+  bottom: 0;
+  z-index: var(--bs-offcanvas-zindex);
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  color: var(--bs-offcanvas-color);
+  visibility: visible;
+  background-color: white;
+  background-clip: padding-box;
+  outline: 0;
+  top: 0;
+
+  padding: 20px;
+  width: 100vw;
+  z-index: 11;
+  left: -100vw;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+
+    @include media-breakpoint-up(sm) {
+      display: block;
+    }
+  }
+
+
+  @include media-breakpoint-up(sm) {
+    left: -8px;
+    min-width: 300px;
+    width: auto;
+    bottom: unset;
+    position: absolute;
+    display: none;
+    top: 100%;
+    z-index: 1050;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    min-width: 300px;
+    width: calc(100vw - 16px);
+    border-radius: 8px;
+  }
+
+  &.aspect {
+    @include media-breakpoint-up(sm) {
+      min-width: 400px;
+    }
+  }
 
   .custom-popup-header {
     display: flex;
@@ -328,6 +403,10 @@ nav.techniques-table {
     .btn-close {
       font-size: 12px;
       padding: 5px;
+
+      &:focus {
+        box-shadow: none;
+      }
     }
   }
 
@@ -347,7 +426,12 @@ nav.techniques-table {
     background: $primary-green;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
-    border: 0
+    border: 0;
+    transition: 0.2s ease all;
+
+    &:hover {
+      background-color: #165046;
+    }
   }
 
   label {
@@ -362,7 +446,7 @@ nav.techniques-table {
     padding: 8px 0px;
     color: $primary;
     margin: 8px 0;
-    
+
   }
 
   .dropdown {
@@ -372,7 +456,6 @@ nav.techniques-table {
       border: 0;
 
       .filter-title {
-        /* Technische aspecten */
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
@@ -425,8 +508,6 @@ nav.techniques-table {
     }
   }
 
-
-
   .filter-buttons {
     display: flex;
     flex-direction: row;
@@ -441,24 +522,25 @@ nav.techniques-table {
     margin-bottom: 8px;
     position: relative;
 
-    &:before{
-      content:'';
+    &:before {
+      content: '';
       display: block;
       position: absolute;
-      width:33.3%;
+      width: 33.3%;
       background: $secondary-green;
       border-radius: 30.4px;
       height: 32px;
       z-index: 0;
-      left:4px;
+      left: 4px;
       transition: all 0.1s ease;
     }
 
-    &.second-btn-active::before{
-      left:33.3%
+    &.second-btn-active::before {
+      left: 33.3%
     }
-    &.third-btn-active::before{
-      left:66.6%
+
+    &.third-btn-active::before {
+      left: 66.6%
     }
 
     .filter-button {
@@ -493,7 +575,12 @@ nav.techniques-table {
   background-color: #F0EFEF;
   transition: max-height 1.25s ease-in;
   max-height: 100vh;
-  margin-left: 12px;
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    margin-left: 12px;
+    display: block;
+  }
 
   .badge {
     background-color: #fff;
@@ -512,6 +599,12 @@ nav.techniques-table {
     text-overflow: ellipsis;
     position: relative;
     display: inline-block;
+    transition: 0.2s ease all;
+    cursor: default;
+
+    &:hover {
+      background-color: #F0EFEF;
+    }
 
     .badge-close {
       margin-left: 8px;
@@ -521,8 +614,9 @@ nav.techniques-table {
       position: absolute;
       right: 8px;
     }
-    sup{
-      display:none;
+
+    sup {
+      display: none;
     }
   }
 
@@ -538,9 +632,145 @@ nav.techniques-table {
   min-width: 192px;
   text-align: left;
   padding-left: 8px;
+
+  .technique-type-icon {
+    margin-left: 0;
+  }
 }
 
+
+
+.status-type-cell,
+.datum-cell,
+.list-table-cell-50,
+.datum-wide-cell {
+  width: 160px;
+  text-align: left;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-family: 'Work Sans';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #7A7A7A;
+}
+
+.datum-cell {
+  width: 96px;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+.cell-50 {
+  width: 50%;
+}
+
+.datum-wide-cell {
+  width: 176px;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+.list-wide-cell {
+  width: 193px;
+}
+
+.cell-50-wide {
+  width: 496px;
+}
+
+td.list-table-cell {
+  background-color: rgba(240, 239, 239, 1);
+  padding: 8px;
+}
+
+.list-table-cell {
+  text-align: left;
+}
+
+.table-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  b {
+    /* Production of Cement, Lime and Magnesium Oxide (CLM) */
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+    margin-bottom: 8px;
+  }
+}
+
+a.table-list-element {
+  position: relative;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  color: $primary;
+  margin-left: 28px;
+  display: block;
+  margin-bottom: 8px;
+  text-decoration: underline;
+
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: url('data:image/svg+xml,<svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4.25C6.61522 4.25 2.25 8.61522 2.25 14C2.25 19.3848 6.61522 23.75 12 23.75C17.3848 23.75 21.75 19.3848 21.75 14C21.75 8.61522 17.3848 4.25 12 4.25ZM16.2803 14.5303C16.421 14.3897 16.5 14.1989 16.5 14C16.5 13.8011 16.421 13.6103 16.2803 13.4697L13.2803 10.4697C12.9874 10.1768 12.5126 10.1768 12.2197 10.4697C11.9268 10.7626 11.9268 11.2374 12.2197 11.5303L13.9393 13.25L8.25 13.25C7.83579 13.25 7.5 13.5858 7.5 14C7.5 14.4142 7.83579 14.75 8.25 14.75L13.9393 14.75L12.2197 16.4697C11.9268 16.7626 11.9268 17.2374 12.2197 17.5303C12.5126 17.8232 12.9874 17.8232 13.2803 17.5303L16.2803 14.5303Z" fill="%23237B6C"/></svg>');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    width: 20px;
+    height: 20px;
+    display: block;
+    left: -26px;
+    top: -1px;
+  }
+
+  a {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: $primary;
+    text-decoration: none;
+    padding: 0;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+  }
+
+  &:hover {
+    border-color: $primary-green;
+    color: $primary-green;
+
+    a {
+      color: $primary-green;
+    }
+  }
+
+}
+
+
 .technique-type-icon {
+  margin-left: 12px;
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
@@ -578,6 +808,16 @@ nav.techniques-table {
     color: #fff;
   }
 
+  &.orange {
+    background: rgba(255, 128, 31, 1);
+    color: #ffffff;
+  }
+
+  &.neutral-green {
+    background: var(--d-color-semantic-neutral-bg, rgba(10, 96, 118, 1));
+    color: #ffffff;
+
+  }
 }
 
 .border-bottom.technical-title-row {
@@ -608,25 +848,38 @@ nav.techniques-table {
   padding: 12px 8px;
   height: 64px;
 
-  &:first-child{
-    padding-right: 0;
+  &:first-child {
+    // padding-right: 0; - in case that special styling needs to be added to the first table
   }
 }
 
-.flag-icon {
-  padding-left: 28px;
+.flag-wrap{
+  display: flex;
+  gap: 8px;
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  display: inline-block;
   color: #7A7A7A;
+  justify-content: center;
+  align-items: center;
+}
+
+.flag-icon {
+  //adding-left: 28px;
+  display: block;
   background-repeat: no-repeat;
   background-position: left center;
+  height: 20px;
+  width: 20px;
+  background-image: url("../images/europe-flag-icon.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 
+  
   &.eu {
-    background-image: url("../images/europe-flag-icon.png");
+    //background-image: url("../images/europe-flag-icon.png");
   }
 
   &.vl {
@@ -651,6 +904,8 @@ nav.techniques-table {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   color: #fff;
+  width: 100%;
+  max-width: 380px;
 
   &:hover {
     opacity: 0.9;
@@ -664,9 +919,24 @@ nav.techniques-table {
 }
 
 .offcanvas.offcanvas-start.filter-block-canvas {
-  padding: 48px 35px 24px 36px;
+  padding: 48px 24px 24px 24px;
   overflow: auto;
   height: 100%;
+  --bs-offcanvas-width: 428px !important;
+
+  .close-btn-wrapper {
+    --bs-offcanvas-width: 428px !important;
+    height: 48px;
+    width: 100%;
+    max-width: 410px;
+    left: 0;
+    z-index: 2;
+
+    @include media-breakpoint-up(xl) {
+      display: none;
+    }
+  }
+
 
   @include media-breakpoint-up(xl) {
     padding: 0px 35px 24px 0px;
@@ -687,7 +957,23 @@ nav.techniques-table {
     }
   }
 
-  h2{
+  .btn-close {
+    right: 38px;
+    position: absolute;
+    color: #2E3333;
+    opacity: 0.9;
+    width: 13.5px;
+    height: 13.5px;
+    background-size: 13.5px 13.5px;
+    top: 10px;
+    z-index: 3;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  h2 {
     height: 31px;
     font-family: 'Yantramanav';
     font-style: normal;
@@ -714,6 +1000,7 @@ nav.techniques-table {
     display: none;
   }
 }
+
 /* search styles for technical table starts here */
 
 
@@ -727,7 +1014,7 @@ nav.techniques-table {
   .filter-block-list {
     background: #FFFFFF;
     transition: none;
-    
+
     @include media-breakpoint-down(xl) {
       max-height: unset !important;
     }
@@ -737,15 +1024,31 @@ nav.techniques-table {
     position: relative;
     display: block;
     width: 100%;
-    
+
     @include media-breakpoint-up(xl) {
       padding: 0 0 16px 20px;
       width: calc(100% + 20px);
       left: -20px;
+
+      &.filter-top {
+        position: absolute;
+        top: -104px;
+        z-index: 10;
+        padding-top: 22px;
+        left: -22px;
+
+
+
+        +.filter-block {
+          margin-top: 60px;
+        }
+      }
+
     }
 
     .filter-block-list {
       margin: -5px 0 0 -5px;
+
       @include media-breakpoint-up(xl) {
         transition: none;
         margin: 0 0 0 -20px;
@@ -761,6 +1064,10 @@ nav.techniques-table {
       border: 5.5px solid rgba(93, 229, 165, 0.2);
       border-radius: 8px;
     }
+  }
+
+  &.filter-top {
+    padding-top: 12px;
   }
 }
 
@@ -794,6 +1101,7 @@ nav.techniques-table {
   display: none;
   z-index: 1000;
   margin-top: 12px;
+
   @include media-breakpoint-up(xl) {
     margin-top: 0;
   }
@@ -809,15 +1117,17 @@ nav.techniques-table {
     color: $primary;
     border-radius: 4px;
   }
+
   &.active {
     display: block;
   }
+
   div {
     padding: 8px;
     cursor: pointer;
 
     &:hover {
-      background-color:#E5FDEF;
+      background-color: $light-green-bg-hover;
       color: $primary-green;
     }
   }
@@ -904,9 +1214,22 @@ nav.techniques-table {
 table tbody tr:not(.title-row):not(.title-row.light) {
   &:hover {
     background-color: rgba(93, 229, 165, 0.1);
-    cursor: default;
-    td.text-left ,td.technical-title-cell{
+
+    td:not(.datum-wide-cell):not(.datum-cell) {
+      cursor: pointer;
+    }
+
+    td.text-left,
+    td.technical-title-cell {
       color: $primary-green;
+    }
+
+    td.list-table-cell {
+      // background-color: rgba(93, 229, 165, 0.5);
+
+      a.table-list-element {
+        // text-decoration: underline;
+      }
     }
   }
 }
@@ -914,7 +1237,7 @@ table tbody tr:not(.title-row):not(.title-row.light) {
 
 table.techniques-table {
   background: #fbf9fa;
-  min-width: 800px;
+  min-width: 768px;
 
   .thead {
     background: #fbf9fa;
@@ -964,7 +1287,7 @@ table.techniques-table {
       max-width: 64px;
 
 
-      > div{
+      >div {
         max-width: 64px;
       }
     }
@@ -973,8 +1296,9 @@ table.techniques-table {
   .btn-2 {
     width: 128px;
   }
+
   .btn-3 {
-    
+
     min-width: 62px;
     max-width: 80px;
 
@@ -1008,8 +1332,12 @@ table.techniques-table {
 
 .database.techniques-table-wrapper {
   border: 0;
-  margin-left: 12px;
-  
+
+
+  @include media-breakpoint-up(xl) {
+    margin-left: 12px;
+  }
+
 
   table.techniques-table {
     background: #fff;
@@ -1017,5 +1345,63 @@ table.techniques-table {
     thead {
       background: #fbf9fa;
     }
+  }
+}
+
+/* section 3 ongoing table - starts here */
+.ongoing-table-wrapper,
+.publication-table-wrapper {
+  border: 0;
+  display: inline-flex;
+  width: 100%;
+  overflow-y: auto;
+
+  table.simple-table {
+    background: #fff;
+    min-width: 768px;
+
+    thead {
+      background: #fbf9fa;
+
+      .border-bottom {
+        .technical-title-cell {
+          height: unset;
+        }
+
+        .technical-title-row {}
+      }
+    }
+  }
+}
+
+.w-100-table {
+  @media screen and (max-width: 1484px) {
+    width: calc(100% - 48px);
+    margin: 0 24px;
+
+  }
+}
+
+/* section 3 ongoing table - ends here */
+
+
+.btn-apply-filter-close {
+  padding: 16px 16px;
+  background: $primary-green;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  text-align: center;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  width: 100%;
+
+  &:hover {
+    color: #FFFFFF;
+    background-color: #165046;
   }
 }

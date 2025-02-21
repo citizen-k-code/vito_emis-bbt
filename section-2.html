@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/styles.css">
-  <title>Template detail - BBT-databank</title>
+  <title>Template detail</title>
 </head>
 
 <body>
@@ -60,10 +60,11 @@
       <div class="row">
         <div class="col-12 col-lg-3">
           <div class="offcanvas offcanvas-start filter-block-canvas" tabindex="-1" id="showFiltersMobile"
-            aria-labelledby="offcanvasExampleLabel">
+            aria-labelledby="offcanvasFilterBlock">
+            <div class="position-fixed top-0 bg-white close-btn-wrapper">
             <button type="button" class="btn-close btn-reset-canvas" data-bs-dismiss="offcanvas"
               aria-label="Close"></button>
-
+            </div>
             <h2 class="filter-type">Filter op</h2>  
             <div class="filter-block">
               <h3 class="filter-block-title">Sectoren</h3>
@@ -216,6 +217,9 @@
                 </div>
               </div>
             </div>
+            <!-- search button that closes the modal/slide in on mobile - starts here -->
+            <button type="button" class="btn btn-apply-filter-close" data-bs-dismiss="offcanvas" aria-label="Close">Filter toevoegen</button>
+            <!-- search button that closes the modal/slide in on mobile - ends here -->
           </div>
         </div>
         <div class="col-12 col-xl-9">
@@ -251,7 +255,9 @@
                     <div class="technique-type-icon light-green">BBT</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon eu"></div><span>EU</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -264,7 +270,9 @@
                     <div class="technique-type-icon dark-green">BBT (vgtg)</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -277,7 +285,9 @@
                     <div class="technique-type-icon yellow">Techniek in opkomst</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon eu">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -288,7 +298,9 @@
                     <div class="technique-type-icon red">Geen BBT</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon be"></div><span>BE</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -300,7 +312,9 @@
                     <div class="technique-type-icon light-green">BBT</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -313,7 +327,9 @@
                     <div class="technique-type-icon dark-green">BBT (vgtg)</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon eu"></div><span>EU</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -326,7 +342,9 @@
                     <div class="technique-type-icon yellow">Techniek in opkomst</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon eu">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon eu"></div><span>EU</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -337,7 +355,9 @@
                     <div class="technique-type-icon red">Geen BBT</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -349,7 +369,9 @@
                     <div class="technique-type-icon light-green">BBT</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon eu"></div><span>EU</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -362,7 +384,9 @@
                     <div class="technique-type-icon dark-green">BBT (vgtg)</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -375,7 +399,9 @@
                     <div class="technique-type-icon yellow">Techniek in opkomst</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon eu">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon eu"></div><span>EU</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -386,7 +412,9 @@
                     <div class="technique-type-icon red">Geen BBT</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -398,7 +426,9 @@
                     <div class="technique-type-icon light-green">BBT</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -411,7 +441,9 @@
                     <div class="technique-type-icon dark-green">BBT (vgtg)</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -424,7 +456,9 @@
                     <div class="technique-type-icon yellow">Techniek in opkomst</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon eu">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -435,7 +469,9 @@
                     <div class="technique-type-icon red">Geen BBT</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -447,7 +483,9 @@
                     <div class="technique-type-icon light-green">BBT</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -460,7 +498,9 @@
                     <div class="technique-type-icon dark-green">BBT (vgtg)</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -473,7 +513,9 @@
                     <div class="technique-type-icon yellow">Techniek in opkomst</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon eu">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->
@@ -484,7 +526,9 @@
                     <div class="technique-type-icon red">Geen BBT</div>
                   </td>
                   <td class="flag-cell">
-                    <div class="flag-icon vl">EU</div>
+                    <div class="flag-wrap">
+                      <div class="flag-icon vl"></div><span>VL</span>
+                    </div>
                   </td>
                 </tr>
                 <!-- Table - row ends here -->

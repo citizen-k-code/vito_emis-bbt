@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>section-3-05-01-technical-sheets</title>
+</head>
+
+<body>
+  <main class="container p-0">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Vlaams Kenniscentrum voor Beste Beschikbare Technieken</a></li>
+        <li class="breadcrumb-item active" aria-current="page">BBT-Tools</li>
+      </ol>
+    </nav>
+    <header class="d-flex justify-content-between align-items-md-center ">
+      <div class="row">
+        <div class="col-md-12 d-flex align-items-center">
+          <div>
+            <h1 class="h3">
+              Techniekfiches
+            </h1>
+            <p>Subtitel voor techniekfiches</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content pb-5">
+      <div class="row equal-height-row card-row">
+        <!-- content card - starts here -->
+        <div class="col-lg-6">
+          <article class="content-card-figure">
+            <figure>
+              <img src="image-normal.jpg"
+                srcset="images/image-placeholder-01.jpg 1x, images/image-placeholder-01-@2x.jpg 2x"
+                alt="Description of image">
+            </figure>
+            <div class="content">
+              <h3>Stoffiches</h3>
+              <p>Bij het op- en overslaan van droge bulkgoederen komen aanzienlijke hoeveelheden diffuus stof in de
+                buitenlucht terecht. In 45 technische fiches wordt hiervoor de huidige stand van zaken rond
+                stofreducerende technieken samengevat.</p>
+              <button class="btn btn-arrow">Bekijk de stoffiches</button>
+          </article>
+        </div>
+      
+      <!-- content card - ends here -->
+
+      <!-- content card - starts here -->
+      <div class="col-lg-6">
+        <article class="content-card-figure">
+          <figure>
+            <img src="image-normal.jpg"
+              srcset="images/image-placeholder-02.jpg 1x, images/image-placeholder-02-@2x.jpg 2x"
+              alt="Description of image">
+          </figure>
+          <div class="content">
+            <h3>Preventie bodemverontreiniging</h3>
+            <p>Ter preventie van bodemverontreiniging kunnen diverse preventieve maatregelen genomen worden, die zijn
+              onderverdeeld in emissie- en immissiebeperkende maatregelen. Deze maatregelen staan verder beschreven in
+              technische fiches</p>
+            <button class="btn btn-arrow">Bekijk de stoffiches</button>
+          </div>
+        </article>
+      </div>
+      <!-- content card - ends here -->
+
+
+      </div>
+    </section>
+    <!-- newsletter section - strats here -->
+    <section class="newsletter container-fluid">
+      <div class="container">
+        <h4>Blijf op de hoogte via onze nieuwsbrief</h4>
+        <form action="#" method="POST">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="input-group">
+                <label for="voornaam" class="form-label">Voornaam</label>
+                <input type="text" class="form-control" id="voornaam" name="voornaam" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <label for="achternaam" class="form-label">Achternaam</label>
+                <input type="text" class="form-control" id="achternaam" name="achternaam" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <label for="email" class="form-label">E-mailadres</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- reCAPTCHA -->
+          <div class="row align-items-center">
+            <div class="col d-flex justify-content-start flex-column flex-md-row">
+              <div id="recaptcha-container"></div> <!-- Placeholder -->
+
+              <p class="info">We stellen deze vraag om spam tegen te gaan.</p>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn">Inschrijven</button>
+        </form>
+
+      </div>
+    </section>
+    <!-- newsletter section - ends here -->
+  </main>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yantramanav:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js?onload=loadRecaptcha&render=explicit" async defer></script>
+
+  <script>
+    function loadRecaptcha() {
+      grecaptcha.render('recaptcha-container', {
+        'sitekey': 'YOUR_SITE_KEY'
+      });
+    }
+  </script>
+</body>
+
+</html>
