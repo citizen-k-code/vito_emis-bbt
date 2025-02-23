@@ -96,14 +96,16 @@ $success: #7952b3;
 //
 
 // @import "icon-list";
+/*
 $primary: rgba(46, 51, 51, 1);
 $primary-green:#237B6C;
 $primary-green-hover:#1C4039;
-$secondary-green:#5DE5A5;
+$secondary-green:$secondary-green;
 $light-green-bg-hover:#E5FDEF;
 $header-bg-green:rgba(93, 229, 165, 0.2);
 $header-title-color:#237B6C;
-
+*/
+/*
 :root {
   --bs-breadcrumb-divider: '';
   $primary: rgba(46, 51, 51, 1);
@@ -114,6 +116,22 @@ $header-title-color:#237B6C;
   // --bs-breakpoint-lg: 992px;
   // --bs-breakpoint-xl: 1200px;
   // --bs-breakpoint-xxl: 1400px;
+}
+*/
+
+@import "_variables";
+
+:root {
+  font-size: 16px; // Base font size
+  
+  // Existing variables
+  --bs-breadcrumb-divider: '';
+  --bs-secondary-color: $primary;
+}
+
+body{
+  font-family: $font-family-base;
+  font-style: normal;
 }
 
 .animated-height {
@@ -154,6 +172,7 @@ main.container {
     /* Custom width for screens 1440px and above */
   }
 }
+
 
 @import "_content";
 @import "_breadcrumb";

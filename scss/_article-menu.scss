@@ -1,25 +1,14 @@
 /* styles for slide-in offcanvas mobile menu - starts here */
 
 .btn-show-article-menu-mobile {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 14px;
-  display: inline-block;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 15px 12px;
-  gap: 8px;
+
+  @include text-style($font-size-sm, $line-height-xs, 600);
+  color: white;
+  margin-bottom: 2rem;
+  height: 3rem;
   background: #0A6076;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  color: #fff;
-  margin-bottom: 32px;
   width: 100%;
-  max-width: 380px;
-  text-align: left;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -58,22 +47,22 @@
 }
 
 .offcanvas.offcanvas-start.article-menu-canvas {
-  padding: 64px 24px 24px 24px;
+  padding: 4rem 1.5rem 1.5rem 1.5rem;
   overflow: auto;
   height: 100%;
-  --bs-offcanvas-width: 428px !important;
+  --bs-offcanvas-width: 26.75rem !important;
 
   .close-btn-wrapper {
-    --bs-offcanvas-width: 428px !important;
-    height: 48px;
+    --bs-offcanvas-width: 26.75rem !important;
+    height: 3rem;
     width: 100%;
-    max-width: 410px;
+    max-width: 25.625rem;
     left: 0;
     z-index: 2;
   }
 
   @include media-breakpoint-up(xl) {
-    padding: 0px 35px 24px 0px;
+    padding: 0 2.188rem 1.5rem 0;
     overflow: unset;
     position: relative;
     transform: none;
@@ -81,7 +70,7 @@
     display: block;
     box-shadow: none;
     transition: none;
-    padding: 48px 35px 24px 36px;
+    padding: 3rem 2.188rem 1.5rem 2.25rem;
 
     +.offcanvas-backdrop.fade {
       display: none;
@@ -110,13 +99,8 @@
   }
 
   h2 {
-    height: 31px;
-    font-family: 'Yantramanav';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 31px;
-    color: $primary;
+    @include heading-style($font-size-xl, $line-height-lg);
+    //height: 31px;
     text-align: left;
     margin-bottom: 10px;
     padding-bottom: 0;

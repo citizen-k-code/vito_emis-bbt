@@ -1,29 +1,25 @@
 /* header navigation tabs - styles starts here */
 .nav-tabs {
   background: #F0EFEF;
-  padding: 8px 24px;
+  padding: 0.5rem 1.5rem; // Converted 8px to 0.5rem and 24px to 1.5rem
   border-bottom: 0;
   position: relative;
   @include media-breakpoint-up(md){
-    padding: 8px 40px;
+    padding: 0.5rem 2.5rem; // Converted 8px to 0.5rem and 40px to 2.5rem
   }
 
   .nav-link {
-    border-radius: 8px;
+    @include text-style($font-size-base, $line-height-base, 400);
+    border-radius: 0.5rem; // Converted 8px to 0.5rem
     background: #F0EFEF;
     border: 0;
     color: $primary;
-    font-family: "Work Sans", serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    padding: 10px 12px;
+    padding: 0.625rem 0.75rem; // Converted 10px to 0.625rem and 12px to 0.75rem
     margin-bottom: 0;
     transition: all ease 0.2s;
     @include media-breakpoint-up(md){
-      padding: 10px 20px;
-      font-size: 18px;
+      padding: 0.625rem 1.25rem; // Converted 10px to 0.625rem and 20px to 1.25rem
+      font-size: $font-size-md;
     }
 
     &.active {
@@ -53,7 +49,7 @@ header.full-width + .nav-tabs{
       z-index: -1; 
       height: 100%;
       margin-left: calc(-50vw + 48%);
-      box-shadow: 24px 0px 0px #F0EFEF;
+      box-shadow: 1.5rem 0px 0px #F0EFEF;
     }
   }
 }

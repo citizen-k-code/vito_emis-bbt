@@ -1,18 +1,18 @@
 /* content card with image - styles starts here */
 @media screen and (min-width: 1440px) {
   .card-row {
-    margin-left: -20px;
-    margin-right: -20px;
+    margin-left: -1.25rem; /* Converted from 20px */
+    margin-right: -1.25rem; /* Converted from 20px */
   }
 }
 
 .content-card-figure {
-  padding: 0px;
-  margin: 0px 8px 40px 8px;
-  background: #FFFFFF;
-  box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 8px 10px -6px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
-  height: calc(100% - 40px);
+  padding: 0rem; /* Converted from 0px */
+  margin: 0rem 0.5rem 2.5rem 0.5rem; /* Converted from 0px 8px 40px 8px */
+  background: $white;
+  box-shadow: 0rem 1.25rem 1.5625rem -0.3125rem rgba(0, 0, 0, 0.1), 0rem 0.5rem 0.625rem -0.375rem rgba(0, 0, 0, 0.1);
+  border-radius: 1rem; /* Converted from 16px */
+  height: calc(100% - 2.5rem); /* Converted from 40px */
   overflow: hidden;
 
   figure {
@@ -20,7 +20,7 @@
   }
 
   .content {
-    padding: 32px 32px 40px 32px;
+    padding: 2rem 2rem 2.5rem 2rem; /* Converted from 32px 32px 40px 32px */
     display: flex;
     flex-direction: column;
 
@@ -35,39 +35,27 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 28px;
+    @include text-style($font-size-lg, $line-height-base, 600); // Updated to use mixin from _variables.scss
     color: $primary;
   }
 
   p {
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
+    @include text-style($font-size-base, $line-height-base, 400); // Updated to use mixin from _variables.scss
     color: $primary;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem; /* Converted from 8px */
   }
 
   button.btn.btn-arrow {
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 14px;
+    @include text-style($font-size-sm, $line-height-xs, 600); // Updated to use mixin from _variables.scss
     display: flex;
     align-items: center;
     text-align: center;
-    color: #FFFFFF;
+    color: $white;
     align-self: flex-end;
-    padding: 17px 40px 17px 16px;
+    padding: 1.0625rem 2.5rem 1.0625rem 1rem; /* Converted from 17px 40px 17px 16px */
     background: $primary-green;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
+    box-shadow: 0rem 0.0625rem 0.125rem rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem; /* Converted from 8px */
     position: relative;
 
     &::after {
@@ -76,13 +64,13 @@
       mask-size: 100% auto;
       mask-repeat: no-repeat;
       background-color: #fff;
-      width: 13px;
-      height: 14px;
+      width: 0.8125rem; /* Converted from 13px */
+      height: 0.875rem; /* Converted from 14px */
       display: block;
       background-position: center;
       position: absolute;
-      right: 18.5px;
-      top: 19px;
+      right: 1.15625rem; /* Converted from 18.5px */
+      top: 1.188rem; /* Converted from 19px */
     }
 
     &:hover {
@@ -92,9 +80,9 @@
 
   &:last-of-type {
     @include media-breakpoint-up(xl){
-      margin-bottom: 24px !important;
+      margin-bottom: 1.5rem !important; /* Converted from 24px */
     }
-    margin-bottom: 32px !important;
+    margin-bottom: 2rem !important; /* Converted from 32px */
   }
 }
 

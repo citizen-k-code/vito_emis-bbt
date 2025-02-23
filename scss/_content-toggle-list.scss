@@ -1,9 +1,9 @@
 /* content toggle list with image - styles starts here */
 
 .link-menu-one-level {
-  padding: 0px 0px 20px 0px;
+  padding: 0rem 0rem 1.25rem 0rem; /* Converted from 20px */
   overflow-y: auto;
-  margin-left: 0px;
+  margin-left: 0rem; /* Converted from 0px */
   transition: all ease 0.2s;
   @include media-breakpoint-up(xl) {
     max-width: 350px;
@@ -17,7 +17,7 @@
   }
 
   li {
-    margin: 10px 0;
+    margin: 0.625rem 0; /* Converted from 10px */
     position: relative;
 
     &:first-child {
@@ -25,31 +25,27 @@
     }
 
     &.mt-0 {
-      margin-bottom: 14px;
+      margin-bottom: 0.875rem; /* Converted from 14px */
     }
 
     >a {
-      font-family: 'Work Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 28px;
+      @include text-style($font-size-base, $line-height-base, 400);
       text-decoration: none;
       color: $primary;
       display: flex;
       align-items: flex-start;
       cursor: pointer;
-      padding: 8px 12px 8px 12px;
+      padding: 0.5rem 0.75rem 0.5rem 0.75rem; /* Converted from 8px 12px 8px 12px */
       transition: all ease 0.1s;
 
       &.active {
         color: #fff;
         background: $primary-green;
-        border-radius: 4px;
+        border-radius: 0.25rem; /* Converted from 4px */
         &:hover{
           color: #fff;
           background: $primary-green;
-          border-radius: 4px;
+          border-radius: 0.25rem; /* Converted from 4px */
         }
 
         &::before {
@@ -81,12 +77,12 @@
 
 .content-dropdown {
   flex-grow: 1;
-  padding: 20px 0;
+  padding: 1.25rem 0; /* Converted from 20px */
   overflow-y: auto;
   transition: all ease 0.2s;
 
   @include media-breakpoint-up(md){
-    padding: 20px;
+    padding: 1.25rem; /* Converted from 20px */
   }
 
   >div {
@@ -105,48 +101,32 @@
   }
 
   h2 {
-    font-family: 'Yantramanav';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 39px;
+    @include heading-style($font-size-lg, $line-height-lg, 500);
     color: $primary;
-    margin-bottom: 16px;
+    margin-bottom: 1rem; /* Converted from 16px */
     padding-bottom: 0;
   }
 
   h3 {
-    font-family: 'Yantramanav';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 31px;
+    @include heading-style($font-size-xl, $line-height-lg, 500);
     color: $primary;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem; /* Converted from 24px */
   }
 
   h4 {
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 28px;
+    @include text-style($font-size-lg, $line-height-base, 600);
     color: $primary;
     flex-grow: 1;
-    margin-bottom: 16px;
+    margin-bottom: 1rem; /* Converted from 16px */
   }
 
-  P {
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
+  p {
+    @include text-style($font-size-base, $line-height-base, 400);
     color: $primary;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem; /* Converted from 24px */
 
     + ul{
-      margin-top: -16px;
+      margin-top: -1rem; /* Converted from 16px */
     }
   }
 
@@ -161,22 +141,22 @@
   }
 
   ul{
-    padding: 0 0 0 20px;
+    padding: 0 0 0 1.25rem; /* Converted from 20px */
     li {
       list-style: none;
   
       a {
-        margin-bottom: 4px;
+        margin-bottom: 0.25rem; /* Converted from 4px */
         position: relative;
   
         &:before {
           content: "·";
-          font-size: 40px;
+          font-size: 2.5rem; /* Converted from 40px */
           vertical-align: middle;
-          line-height: 20px;
+          line-height: 1.25rem; /* Converted from 20px */
           position: absolute;
-          left: -18px;
-          top: -2px;
+          left: -1.125rem; /* Converted from 18px */
+          top: -0.125rem; /* Converted from 2px */
         }
       }
     }

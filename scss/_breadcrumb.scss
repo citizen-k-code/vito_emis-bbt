@@ -6,26 +6,23 @@ nav ol.breadcrumb {
   --bs-breadcrumb-bg: ;
   --bs-breadcrumb-border-radius: ;
   --bs-breadcrumb-divider-color: var(--bs-secondary-color);
-  --bs-breadcrumb-item-padding-x: 26px;
+  --bs-breadcrumb-item-padding-x: 1.625rem; // Converted from 26px
   --bs-breadcrumb-item-active-color: var(--bs-secondary-color);
   font-size: var(--bs-breadcrumb-font-size);
   list-style: none;
   text-decoration: none;
 
-  line-height: 20px;
-  padding: 16px 20px;
+  @include text-style($font-size-base, $line-height-base);
+  padding: 1rem 1.25rem; // Converted from 16px 20px
   background-color: #fff;
-  gap: 0 8px;
-  font-family: "Work Sans", serif;
-  font-style: normal;
-  font-weight: 400;
+  gap: 0 0.5rem; // Converted from 0 8px
   display: flex;
   align-items: center;
 
   li.breadcrumb-item {
-    font-size: 14px;
-    line-height: 20px;
-    padding: 8px 0 8px 0;
+    font-size: 0.875rem; // Converted from 14px
+    line-height: 1.25rem; // Converted from 20px
+    padding: 0.5rem 0 0.5rem 0; // Converted from 8px 0 8px 0
     position: relative;
     white-space: nowrap;
     overflow: hidden;
@@ -40,12 +37,12 @@ nav ol.breadcrumb {
     &::after {
       content: '';
       width: 100%;
-      height: 1px;
+      height: 0.0625rem; // Converted from 1px
       background-color: $primary;
       display: block;
       position: absolute;
       right: 0;
-      bottom: 8px;
+      bottom: 0.5rem; // Converted from 8px
       
     }
 
@@ -72,7 +69,7 @@ nav ol.breadcrumb {
       
 
       &::after {
-        width: calc(100% - 26px);
+        width: calc(100% - 1.625rem); // Converted from 26px
       }
       /* disable hover on last element starts*/
       &:last-child{
@@ -85,14 +82,14 @@ nav ol.breadcrumb {
       /* disable hover on last element ends */
 
       &:before {
-        width: 20px;
-        height: 20px;
+        width: 1.25rem; // Converted from 20px
+        height: 1.25rem; // Converted from 20px
         text-align: center;
         display: block;
         background-image: url('data:image/svg+xml,<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.27347 5.14629L0.297233 1.17005L1.08423 0.383057L5.84747 5.14629L1.08423 9.90953L0.297233 9.12253L4.27347 5.14629Z" fill="%232E3333"/></svg>');
         background-repeat: no-repeat;
         background-position: center center;
-        margin-left: -30px;
+        margin-left: -1.875rem; // Converted from -30px
       }
 
     }

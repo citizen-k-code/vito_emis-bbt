@@ -1,0 +1,61 @@
+// Typography
+$font-family-base: 'Work Sans', serif;
+$font-family-heading: 'Yantramanav', serif;
+
+// Colors
+$primary: rgba(46, 51, 51, 1);
+$primary-green: #237B6C;
+$primary-green-hover: #1C4039;
+$primary-light: #E9F2F0;
+$secondary-green: #5DE5A5;
+$light-green-bg-hover: #E5FDEF;
+$header-bg-green: rgba(93, 229, 165, 0.2);
+$header-title-color: #237B6C;
+$white: #fff;
+$black: #000;
+
+// Font sizes (px to rem conversion)
+$font-size-xs: 0.75rem;    // 12px
+$font-size-sm: 0.875rem;   // 14px
+$font-size-base: 1rem;     // 16px
+$font-size-md: 1.125rem;   // 18px
+$font-size-lg: 1.25rem;    // 20px
+$font-size-xl: 1.5rem;     // 24px
+$font-size-2xl: 1.875rem;  // 30px
+$font-size-3xl: 2.25rem;   // 36px
+
+// Line heights (px to rem)
+$line-height-xs: 0.875rem;   // 14px
+$line-height-sm: 1.25rem;    // 20px
+$line-height-base: 1.75rem;  // 28px
+$line-height-lg: 1.938rem;   // 31px
+$line-height-xl: 2.438rem;   // 39px
+$line-height-2xl: 2.938rem;  // 47px
+
+
+
+// Font mixins
+@mixin font-base {
+  font-family: $font-family-base;
+  font-style: normal;
+}
+
+@mixin font-heading {
+  font-family: $font-family-heading;
+  font-style: normal;
+}
+
+@mixin text-style($size, $line-height, $weight: 400) {
+  @include font-base;
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+
+@mixin heading-style($size, $line-height, $weight: 500) {
+  @include font-heading;
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+  color: $primary;
+} 
