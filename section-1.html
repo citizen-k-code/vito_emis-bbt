@@ -283,31 +283,28 @@
                   </div>
                   <label>effect op</label>
                   <!-- Bootstrap dropdown -->
-                  <div class="dropdown">
-                    <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      Maak een keuze
-                    </button>
-
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <li class="filter-title">Technische aspecten</li>
-                      <li class="filter dropdown-item">Bewezen</li>
-                      <li class="filter dropdown-item">Interne veiligheid</li>
-                      <li class="filter dropdown-item">Kwaliteit</li>
-                      <li class="filter dropdown-item">Globaal - technisch</li>
-                      <li class="filter-title">Milieuaspecten</li>
-                      <li class="filter dropdown-item">Waterverbruik</li>
-                      <li class="filter dropdown-item">Afvalwater</li>
-                      <li class="filter dropdown-item">Lucht</li>
-                      <li class="filter dropdown-item">Bodem</li>
-                      <li class="filter dropdown-item">Afval</li>
-                      <li class="filter dropdown-item">Energie - elektriciteitsverbruik</li>
-                      <li class="filter dropdown-item">Chemicaliën</li>
-                      <li class="filter dropdown-item">Globaal - milieu</li>
-                      <li class="filter-title">Economische aspecten</li>
-                      <li class="filter dropdown-item">Globaal - economisch</li>
-                    </ul>
-                  </div>
+                  <select class="form-select mb-3">
+                    <option value="">Maak een keuze</option>
+                    <optgroup label="Technische aspecten">
+                      <option value="Bewezen">Bewezen</option>
+                      <option value="Interne veiligheid">Interne veiligheid</option>
+                      <option value="Kwaliteit">Kwaliteit</option>
+                      <option value="Globaal - technisch">Globaal - technisch</option>
+                    </optgroup>
+                    <optgroup label="Milieuaspecten">
+                      <option value="Waterverbruik">Waterverbruik</option>
+                      <option value="Afvalwater">Afvalwater</option>
+                      <option value="Lucht">Lucht</option>
+                      <option value="Bodem">Bodem</option>
+                      <option value="Afval">Afval</option>
+                      <option value="Energie - elektriciteitsverbruik">Energie - elektriciteitsverbruik</option>
+                      <option value="Chemicaliën">Chemicaliën</option>
+                      <option value="Globaal - milieu">Globaal - milieu</option>
+                    </optgroup>
+                    <optgroup label="Economische aspecten">
+                      <option value="Globaal - economisch">Globaal - economisch</option>
+                    </optgroup>
+                  </select>
                   <!--  Filter button -->
                   <button class="apply-filter" id="addFilterButton">Filter toevoegen</button>
                 </div>

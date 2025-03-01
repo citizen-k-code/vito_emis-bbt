@@ -6,7 +6,7 @@
   color: white;
   margin-bottom: 2rem;
   height: 3rem;
-  background: #0A6076;
+  background: $neutral-blue;
   width: 100%;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
   white-space: nowrap;
@@ -20,7 +20,7 @@
 
   &:hover {
     opacity: 0.9;
-    background: #0A6076;
+    background: $neutral-blue;
     color: #fff;
   }
 

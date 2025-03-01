@@ -1,26 +1,24 @@
 /* table styles starts here */
 nav.techniques-table {
-  padding-bottom: 32px;
+  padding-bottom: 1rem;
 
   button {
+    @include text-style($font-size-sm, $line-height-xs, 600);
+    color: $primary;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 14px 10px;
     box-shadow: none;
     border-radius: 1000px;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 14px;
-    color: $primary;
     border: none;
+    background: $gray-200;
+    padding: 0 16px;
+    height: 40px;
     margin: 0 8px 0 0;
 
     @include media-breakpoint-up(md) {
-      padding: 17px 16px;
+      height:48px; 
       margin: 0 16px 0 0;
     }
 
@@ -53,7 +51,7 @@ nav.techniques-table {
 
 /* table filtering styles starts here */
 .table-filtering {
-  background-color: #F0EFEF;
+  background-color: $gray-200;
   padding: 16px 16px 16px 16px;
   display: flex;
   flex-direction: column;
@@ -70,11 +68,7 @@ nav.techniques-table {
   }
 
   .pagination-info {
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
+    @include text-style($font-size-base, $line-height-base, 400);
     text-align: right;
     color: $primary;
 
@@ -88,11 +82,7 @@ nav.techniques-table {
   }
 
   .filter-type {
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+    @include text-style($font-size-sm, $line-height-sm, 400);
     align-items: center;
     text-align: center;
     color: $primary;
@@ -101,15 +91,9 @@ nav.techniques-table {
 
 /* styles for filtered number starts here */
 .filter-nr {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 14px;
-  text-align: center;
+  @include text-style($font-size-sm, $line-height-sm, 400);
   text-decoration: underline;
   color: $primary-green;
-  padding: 9px 0;
-
   &:empty {
     height: 0;
     padding: 0;
@@ -123,20 +107,19 @@ nav.techniques-table {
   position: relative;
 
   button.btn {
-    padding: 9px 34px 9px 12px;
-    margin-right: 8px;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 14px;
+    @include text-style($font-size-sm, $line-height-xs, 600);
+    height: 32px;
+    padding: 0 34px 0 12px;
+    margin-right: 0.5rem;
+    
+
     text-align: center;
     color: $white;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background: #0A6076;
+    background: $neutral-blue;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
     border-radius: .5rem;
     border: 0;
@@ -149,15 +132,16 @@ nav.techniques-table {
     &::after {
       content: '';
       background-image: url('data:image/svg+xml,<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.30936 9.49686C7.1385 9.66771 6.8615 9.66771 6.69064 9.49686L2.31564 5.12186C2.14479 4.95101 2.14479 4.674 2.31564 4.50314C2.4865 4.33229 2.7635 4.33229 2.93436 4.50314L7 8.56878L11.0656 4.50314C11.2365 4.33229 11.5135 4.33229 11.6844 4.50314C11.8552 4.674 11.8552 4.95101 11.6844 5.12186L7.30936 9.49686Z" fill="white"/></svg>');
+      background-repeat: no-repeat;
+      background-position-y: center;
       width: 14px;
-      height: 14px;
+      height: 32px;
       position: absolute;
       right: 18px;
-      top: 9px;
     }
 
     &:active {
-      background: #0A6076;
+      background: $neutral-blue;
     }
   }
 }
@@ -517,7 +501,7 @@ body.popup-opened {
     align-content: center;
     border-radius: 30.4px;
     padding: 4px 4px;
-    background: #F0EFEF;
+    background: $gray-200;
     justify-content: space-between;
     margin-bottom: 8px;
     position: relative;
@@ -572,7 +556,7 @@ body.popup-opened {
 
 .filter-container {
   padding: 0px 16px 0px 16px;
-  background-color: #F0EFEF;
+  background-color: $gray-200;
   transition: max-height 1.25s ease-in;
   max-height: 100vh;
   display: none;
@@ -603,7 +587,7 @@ body.popup-opened {
     cursor: default;
 
     &:hover {
-      background-color: #F0EFEF;
+      background-color: $gray-200;
     }
 
     .badge-close {
@@ -900,7 +884,7 @@ a.table-list-element {
   padding: 0.5625rem 0.75rem;
   gap: 0.5rem;
   margin-right: 0.5rem;
-  background: #0A6076;
+  background: $neutral-blue;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
   border-radius: .5rem;
   color: #fff;
@@ -909,7 +893,7 @@ a.table-list-element {
 
   &:hover {
     opacity: 0.9;
-    background: #0A6076;
+    background: $neutral-blue;
     color: #fff;
   }
 

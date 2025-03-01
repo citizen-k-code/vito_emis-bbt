@@ -233,6 +233,10 @@
           color: #fff;
           background: $primary-green;
           border-radius: .25rem;
+
+          &::before {
+            background-color: #fff;
+          }
         }
 
         &::before {
